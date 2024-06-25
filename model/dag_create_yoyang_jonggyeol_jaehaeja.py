@@ -85,12 +85,13 @@ def print_text(text):
 def insert_data(db_connect):
 
     db_connect_raw_input_0 = psycopg2.connect(
-        database="postgres",
-        user="wesleyquest",
-        password="Wqasdf01!",
-        host="211.218.17.10",
-        port="5432")
-
+        database=POSTGRES_DB,
+        user=POSTGRES_USER,
+        password=POSTGRES_PASSWORD,
+        host=POSTGRES_HOST,
+        port=POSTGRES_PORT
+        )
+    
     with db_connect_raw_input_0.cursor() as cur:
         AAA010MT_SAMPLE = pd.read_sql_query(f"SELECT WONBU_NO, JAEHAE_DT FROM AAA010MT_SAMPLE",db_connect_raw_input_0)
         AAA050DT_SAMPLE = pd.read_sql_query(f"SELECT * FROM AAA050DT_SAMPLE",db_connect_raw_input_0)
